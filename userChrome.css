@@ -3454,6 +3454,18 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 }
 
+/* Keep the divider through expansion and collapse animations without changing width. */
+@media (-moz-mac-tahoe-theme) and -moz-pref("sidebar.revamp") and -moz-pref("sidebar.verticalTabs") {
+  #sidebar-container:is([sidebar-launcher-expanded], [sidebar-ongoing-animations], :has(#tabbrowser-tabs[expanded])) {
+    --gwt-sidebar-divider: light-dark(rgba(0, 0, 0, .18), rgba(255, 255, 255, .22));
+    box-shadow: inset 1px 0 var(--gwt-sidebar-divider) !important;
+
+    @media -moz-pref("sidebar.position_start") {
+      box-shadow: inset -1px 0 var(--gwt-sidebar-divider) !important;
+    }
+  }
+}
+
 /* Reserve the icon rail width over a toolbar-colored backing surface.
    Keep the same glass surface in collapsed, expanded, and animating states. */
 @media (-moz-mac-tahoe-theme) and -moz-pref("sidebar.revamp") and -moz-pref("sidebar.verticalTabs") and -moz-pref("gwt.vertical-tabs-icons") {
