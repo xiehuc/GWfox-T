@@ -45,3 +45,11 @@ Create these **Boolean** preferences in `about:config` to customize:
 With `gwt.vertical-tabs-icons` enabled in hover mode, the collapsed icon rail reserves space so it does not cover page content. The collapsed rail and expanded panel share the same translucent background and blur, including during width animations. The backing surface uses the navigation toolbar background (`--toolbar-background-color`). An open sidebar tool panel keeps Firefox's normal layout.
 
 With this preference disabled or unset, the original theme styling is preserved. Enable it to also use pill-shaped vertical tabs and new-tab buttons.
+
+### Vertical tab icons preview
+
+`gwt.vertical-tabs-icons` enabled:
+
+<div align="center">
+<video src="https://github.com/user-attachments/assets/6e7c2529-c537-4796-809d-e8892a9371d8" controls muted playsinline width="800" aria-label="Vertical tab icons preview"></video>
+</div>
