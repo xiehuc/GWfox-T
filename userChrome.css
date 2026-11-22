@@ -705,6 +705,10 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   padding: 6.5px 5.5px 5.5px 6.5px !important;
 }
 }
+/* Native margins use em units; fixed 2px keeps translucent joins from overlapping. */
+~ .toolbaritem-combined-buttons {
+  margin-inline: 2px !important;
+}
 ~ .toolbaritem-combined-buttons .toolbarbutton-1 {
   margin-inline: -3.5px !important;
 }
@@ -3058,7 +3062,7 @@ sidebar-tab-row {
 :root[sidebar-expand-on-hover] & {
 &[sidebar-launcher-expanded], &[sidebar-ongoing-animations]:not([sidebar-launcher-expanded]) {
   background-image: none !important;
-  background-color: var(--bg4) !important;
+  background-color: var(--gwt-sidebar-surface, var(--bg4)) !important;
   backdrop-filter: blur(10px);
 }
 }
@@ -3475,7 +3479,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
     #sidebar-container {
       margin-top: 0 !important;
       background-image: none !important;
-      background-color: var(--bg4) !important;
+      background-color: var(--gwt-sidebar-surface, var(--bg4)) !important;
       backdrop-filter: blur(10px);
     }
   }
@@ -3502,4 +3506,13 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
     visibility: hidden !important;
     pointer-events: none !important;
   }
+}
+
+/* Use the toolbar hue with the original glass opacity in dark mode.
+   Keep backdrop content visible during hover expansion and collapse. */
+@media (-moz-mac-tahoe-theme) and (prefers-color-scheme: dark) and -moz-pref("sidebar.revamp") and -moz-pref("sidebar.verticalTabs") {
+  :root {
+    --gwt-sidebar-surface: color-mix(in srgb, var(--toolbar-background-color) 55%, transparent);
+  }
+
 }
