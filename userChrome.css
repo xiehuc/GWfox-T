@@ -1667,6 +1667,10 @@ tab-group > tab-split-view-wrapper & {
 }
 }
 
+.tabbrowser-tab[pinned]:not([selected], :hover) .tab-background {
+  background: light-dark(rgba(70, 70, 70, .05), rgba(255, 255, 255, .05)) !important;
+}
+
 .tabbrowser-tab:hover .tab-background {
   background: var(--bg2-active) !important;
   transition: background .5s !important;
